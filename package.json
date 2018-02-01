@@ -11,8 +11,12 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "chart.js": "^2.7.1",
+    "element-ui": "^2.1.0",
+    "epic-spinners": "^1.0.1",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuechart": "^17.12.15"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
