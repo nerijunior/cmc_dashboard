@@ -11,10 +11,12 @@
     <br>
     <el-table
       border
+      stripe
       :data="data"
       :default-sort = "{prop: 'nome', order: 'ascending'}"
       :empty-text="'Nenhum dado encontrado'"
       @row-click="chooseEntity"
+      height="500px"
       style="width: 100%">
       <el-table-column
         prop="nome"
