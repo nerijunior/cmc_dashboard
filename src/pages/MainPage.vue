@@ -1,8 +1,9 @@
 <template>
   <div id="main-page">
     <el-row :gutter="20">
-      <el-col :span="12" :offset="6">
-        <h1>Holerites - Câmara Municipal de Curitiba - 2017</h1>
+      <el-col :span="22" :offset="1">
+        <h1>Holerites</h1>
+        <h2><small>Câmara Municipal de Curitiba - 2017</small></h2>
       </el-col>
       <el-col :span="12" :offset="6">
         <el-steps :active="step" finish-status="success">
@@ -21,12 +22,12 @@
           />
         </div>
       </el-col>
-      <el-col :span="12" :offset="6">
+      <el-col :span="22" :offset="1">
         <transition>
           <entity-type-selector v-if="step === 0" @choosed="choosedType"></entity-type-selector>
         </transition>
       </el-col>
-      <el-col :span="12" :offset="6">
+      <el-col :span="22" :offset="1">
         <transition>
           <entity-table v-if="step === 1" @back="step = 0" :type="selectedType" :data="data" @choosed="choosedEntity"></entity-table>
         </transition>
@@ -42,11 +43,14 @@
 
       <el-row :gutter="20">
         <el-col :xs="24" :span="12">
-          <div class="chart">
+          <div class="hidden-sm-and-up">
+            <i class="el-icon-refresh"></i>
+          </div>
+          <div class="chart hidden-xs-only">
             <vue-chart
               type="line"
               :data="getEntityChartData()"
-              :options="{scales: {yAxes: [{ticks: {beginAtZero: true}}]}}"
+              :options="{scales: {yAxes: [{ticks: {beginAtZero: true}}]}, legend: {position: 'bottom'}}"
               :update-config="{duration: 800, easing: 'easeOutBounce'}"
             ></vue-chart>
           </div>
@@ -189,5 +193,12 @@ export default {
 }
 .chart{
   width: 100%;
+  margin-bottom: 50px;
 }
+
+h1{
+  font-size: 1.5rem;
+}
+
+h2{ font-size: 1rem; }
 </style>

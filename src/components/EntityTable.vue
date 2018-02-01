@@ -1,10 +1,10 @@
 <template>
   <div>
     <el-row :gutter="20">
-      <el-col :span="6">
+      <el-col :xs="24" :span="6">
         <el-button @click="$emit('back')" type="primary" icon="el-icon-arrow-left">Trocar Categoria</el-button>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :span="12">
         <h3>Categoria Selecionada: {{ type }}</h3>
       </el-col>
     </el-row>
@@ -42,7 +42,7 @@ export default {
         eventCategory: 'Entity Selected',
         eventAction: 'click',
         eventLabel: entity.name
-      });
+      })
 
       this.$emit('choosed', entity)
     }

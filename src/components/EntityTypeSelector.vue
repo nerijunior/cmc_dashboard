@@ -1,12 +1,15 @@
 <template>
   <div>
     <h2>Selecione uma categoria</h2>
-    <el-button v-for="entity in entities" v-if="entity.enabled"
-      :key="entity.id"
-      @click="chooseEntityType(entity)"
-      type="primary">
-      {{ entity.name }}
-    </el-button>
+    <el-row :gutter="20">
+      <el-col v-for="entity in entities" :key="entity.id" :xs="24" :sm="12" :md="8" :lg="6" :xl="3">
+        <el-button v-if="entity.enabled"
+          @click="chooseEntityType(entity)"
+          type="primary">
+          {{ entity.name }}
+        </el-button>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -34,7 +37,7 @@ export default {
         eventCategory: 'Entity Type Selected',
         eventAction: 'click',
         eventLabel: type.name
-      });
+      })
 
       this.$emit('choosed', type)
     }
@@ -43,4 +46,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.el-button{
+  margin-bottom: 10px;
+}
+h2{
+  font-size: 1rem;
+}
 </style>
