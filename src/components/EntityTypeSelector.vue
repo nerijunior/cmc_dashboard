@@ -30,6 +30,12 @@ export default {
   },
   methods: {
     chooseEntityType (type) {
+      window.ga('send', 'event', {
+        eventCategory: 'Entity Type Selected',
+        eventAction: 'click',
+        eventLabel: type.name
+      });
+
       this.$emit('choosed', type)
     }
   }

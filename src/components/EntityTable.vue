@@ -38,6 +38,12 @@ export default {
   props: ['data', 'type'],
   methods: {
     chooseEntity (entity) {
+      window.ga('send', 'event', {
+        eventCategory: 'Entity Selected',
+        eventAction: 'click',
+        eventLabel: entity.name
+      });
+
       this.$emit('choosed', entity)
     }
   }
